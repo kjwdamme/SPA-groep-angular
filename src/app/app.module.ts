@@ -1,4 +1,4 @@
-import { UserService } from './services/user.service';
+import {EnergyValueService} from './services/energyvalue.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -9,12 +9,14 @@ import { HttpModule, Http } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
+import { EnergyValueItemComponent } from './components/dashboard/energy-value-item/energy-value-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     HeaderComponent,
+    EnergyValueItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule
   ],
   providers: [
-    UserService
+    EnergyValueService
   ],
   bootstrap: [AppComponent]
 })

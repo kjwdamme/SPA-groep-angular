@@ -2,22 +2,8 @@
   <h1>{{title}}</h1>
 </div>
 
-<div *ngIf="users" class="col-sm-6">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <td>Nr</td>
-        <td>Naam</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users, let i = index">
-        <td>{{i+1}}</td>
-        <td>{{user.name}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div *ngIf="!users">
-  Er zijn geen users gevonden.
-</div>
+<app-energy-value-item
+  *ngFor="let valueEl of energyValues; let i = id"
+  [energyValue]="valueEl"
+  (energyValueSelected)="onEnergyValueSelected(valueEl)"
+  [id]="i"></app-energy-value-item>

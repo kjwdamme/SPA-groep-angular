@@ -1,0 +1,26 @@
+<div
+  style="cursor: pointer;"
+  (click)="onSelected()"
+  [routerLink]="[id]"
+  routerLinkActive="active">
+  <div *ngIf="energyValues" class="col-sm-6">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <td>Energy generated</td>
+        <td>Converter</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let value of energyValues">
+        <!--<td>{{ value.info }}</td>-->
+        <td>{{ value }}</td>
+        <td> {{ value }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--<div *ngIf="!energyValues">-->
+    <!--Er zijn geen users gevonden.-->
+  <!--</div>-->
+</div>

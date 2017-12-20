@@ -4,14 +4,17 @@ import { environment } from '../../environments/environment';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../models/user.model';
+import {EnergyValue} from '../models/energyvalue.model';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
-export class UserService {
+export class EnergyValueService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private serverUrl = environment.serverUrl + '/users'; // URL to web api
-  private users: User[] = [];
+  private serverUrl = environment.serverUrl + '/energyvalues'; // URL to web api
+  private energyValues: EnergyValue[] = [];
+  energyValuesChanged = new Subject<EnergyValue[]>();
+
 
   //
   //
@@ -21,13 +24,13 @@ export class UserService {
   //
   //
   //
-  public getUsers(): Promise<User[]> {
-    console.log('items ophalen van server');
+  public getEnergyValues(): Promise<EnergyValue[]> {
+    console.log('get values from the server');
     return this.http.get(this.serverUrl, { headers: this.headers })
       .toPromise()
       .then(response => {
         console.dir(response.json());
-        return response.json() as User[];
+        return response.json() as EnergyValue[];
       })
       .catch(error => {
         return this.handleError(error);
