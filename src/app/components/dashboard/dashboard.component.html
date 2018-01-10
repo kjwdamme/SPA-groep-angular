@@ -1,9 +1,0 @@
-<div class="page-header">
-  <h1>{{title}}</h1>
-</div>
-
-<app-energy-value-item
-  *ngFor="let valueEl of energyValues; let i = id"
-  [energyValue]="valueEl"
-  (energyValueSelected)="onEnergyValueSelected(valueEl)"
-  [id]="i"></app-energy-value-item>

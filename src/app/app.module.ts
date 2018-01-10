@@ -1,22 +1,26 @@
-import {EnergyValueService} from './services/energyvalue.service';
+import {LocationService} from './services/location.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpModule, Http } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
-import { EnergyValueItemComponent } from './components/dashboard/energy-value-item/energy-value-item.component';
+import {LocationItemComponent} from './components/locations/location-list/location-item/location-item.component';
+import {LocationsComponent} from './components/locations/locations.component';
+import {LocationListComponent} from './components/locations/location-list/location-list.component';
+import {LocationDetailComponent} from './components/locations/location-detail/location-detail.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     HeaderComponent,
-    EnergyValueItemComponent,
+    LocationItemComponent,
+    LocationDetailComponent,
+    LocationListComponent,
+    LocationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { EnergyValueItemComponent } from './components/dashboard/energy-value-it
     BrowserAnimationsModule
   ],
   providers: [
-    EnergyValueService
+    LocationService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
-import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/toPromise';
-import { Observable } from 'rxjs/Observable';
-import {EnergyValue} from '../models/energyvalue.model';
 import {Subject} from 'rxjs/Subject';
+import {Location} from '../models/location.model';
 
 @Injectable()
-export class EnergyValueService {
+export class LocationService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private serverUrl = environment.serverUrl + '/energyvalues'; // URL to web api
-  private energyValues: EnergyValue[] = [];
-  energyValuesChanged = new Subject<EnergyValue[]>();
+  private serverUrl = environment.serverUrl + '/locations'; // URL to web api
+  private locations: Location[] = [];
+  locationsChanged = new Subject<Location[]>();
 
 
   //
@@ -24,13 +22,13 @@ export class EnergyValueService {
   //
   //
   //
-  public getEnergyValues(): Promise<EnergyValue[]> {
+  public getLocations(): Promise<Location[]> {
     console.log('get values from the server');
     return this.http.get(this.serverUrl, { headers: this.headers })
       .toPromise()
       .then(response => {
         console.dir(response.json());
-        return response.json() as EnergyValue[];
+        return response.json() as Location[];
       })
       .catch(error => {
         return this.handleError(error);

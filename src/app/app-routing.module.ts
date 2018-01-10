@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {LocationDetailComponent} from './components/locations/location-detail/location-detail.component';
+import {LocationsComponent} from './components/locations/locations.component';
 
 const appRoutes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '**', redirectTo: '/dashboard' }
+  { path: 'locations', component: LocationsComponent },
+  { path: '**', redirectTo: '/locations' },
+  { path: 'locations/:id', component: LocationDetailComponent}
 ];
 
 @NgModule({
