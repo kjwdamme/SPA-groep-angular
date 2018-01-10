@@ -1,7 +1,7 @@
 import {Converter} from './converter.model';
 export class Location {
 
-  private _id: string;
+  public _id: string;
   private _name: string;
   private _street: string;
   private _houseNumber: number;
@@ -19,13 +19,13 @@ export class Location {
     Object.assign(this, values);
   }
 
-  get id(): string {
-    return this._id;
-  }
-
-  set id(value: string) {
-    this._id = value;
-  }
+  // get id(): string {
+  //   return this._id;
+  // }
+  //
+  // set id(value: string) {
+  //   this._id = value;
+  // }
 
   get name(): string {
     return this._name;

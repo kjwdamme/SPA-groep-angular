@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-import {Router, ActivatedRoute} from '@angular/router';
-import {LocationService} from '../../../services/location.service';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { Router, ActivatedRoute } from '@angular/router';
+import { LocationService } from '../../../services/location.service';
 import { Location } from '../../../models/location.model';
 
 @Component({
@@ -37,6 +37,8 @@ export class LocationListComponent implements OnInit, OnDestroy {
   //
   onLocationSelected(location: Location) {
     this.locationWasSelected.emit(location);
+    console.dir(location);
+    console.log('werkt');
   }
   //
   // onNewAdvertisement() {

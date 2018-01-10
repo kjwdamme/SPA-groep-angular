@@ -14,22 +14,17 @@ export class LocationItemComponent implements OnInit {
   @Input() id: string;
   @Output() locationSelected = new EventEmitter<void>();
 
-  constructor(private route: ActivatedRoute,
-              private locationService: LocationService,
-              private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    this.id = this.location.id;
-    console.log(this.location);
+    this.id = this.location._id;
+    // console.log(this.location);
+    // console.log(this.id);
   }
 
   onSelected() {
     this.locationSelected.emit();
+    console.log('werkt');
   }
-
-  // onDeleteFromFavorites() {
-  //   this.adService.removeFromFavorites(this.id);
-  //   this.router.navigate(['/advertisements']);
-  // }
 
 }
