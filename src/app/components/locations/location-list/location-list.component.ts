@@ -37,8 +37,8 @@ export class LocationListComponent implements OnInit, OnDestroy {
   //
   onLocationSelected(location: Location) {
     this.locationWasSelected.emit(location);
-    console.dir(location);
-    console.log('werkt');
+    // console.dir(location);
+    // console.log('werkt');
   }
   //
   // onNewAdvertisement() {
