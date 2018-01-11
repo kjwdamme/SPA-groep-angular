@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import 'rxjs/add/operator/toPromise';
 import {Subject} from 'rxjs/Subject';
 import {Location} from '../models/location.model';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LocationService {
@@ -46,6 +47,26 @@ export class LocationService {
       .catch(( error => {
         return this.handleError(error);
       }));
+  }
+
+  public deleteLocation(id: string) {
+    this.http.delete(this.serverUrl + '/' + id, { headers: this.headers})
+      .toPromise()
+      .then( response => {
+        this.locationsChanged.next(this.locations.slice());
+      })
+      .catch(( error => {
+        return this.handleError(error);
+      }));
+  }
+
+  public addLocation(location: Location) {
+    this.http.post(this.serverUrl, location)
+      .map(response => response.json() as Location)
+      .subscribe( result => {
+        this.locations.push(result as Location);
+        this.locationsChanged.next(this.locations.slice());
+      });
   }
 
   //

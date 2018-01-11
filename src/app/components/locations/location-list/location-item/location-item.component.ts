@@ -14,7 +14,7 @@ export class LocationItemComponent implements OnInit {
   @Input() id: string;
   @Output() locationSelected = new EventEmitter<void>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private locationService: LocationService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.id = this.location._id;
@@ -24,7 +24,5 @@ export class LocationItemComponent implements OnInit {
 
   onSelected() {
     this.locationSelected.emit();
-    console.log('werkt');
   }
-
 }

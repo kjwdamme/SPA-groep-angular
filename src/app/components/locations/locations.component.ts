@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '../../models/location.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-locations',
@@ -9,9 +10,13 @@ import { Location } from '../../models/location.model';
 export class LocationsComponent implements OnInit {
   selectedLocation: Location;
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  onNewLocation() {
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
 }

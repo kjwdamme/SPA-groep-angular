@@ -33,4 +33,9 @@ export class LocationDetailComponent implements OnInit {
         }
       );
   }
+
+  onDeleteLocation() {
+    this.locationService.deleteLocation(this.id);
+    this.router.navigate(['/locations']);
+  }
 }
