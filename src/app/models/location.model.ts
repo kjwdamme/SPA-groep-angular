@@ -12,7 +12,7 @@ export class Location {
   private _installationDate: Date;
   private _installer: string;
   private _contactPerson: string;
-  private _location: Converter[];
+  private _converters: Converter[];
 
 
   constructor(values: Object = {}) {
@@ -107,11 +107,11 @@ export class Location {
     this._contactPerson = value;
   }
 
-  get location(): Converter[] {
-    return this._location;
+  get converters(): Converter[] {
+    return this._converters;
   }
 
-  set location(value: Converter[]) {
-    this._location = value;
+  set converters(value: Converter[]) {
+    this._converters = value;
   }
 }

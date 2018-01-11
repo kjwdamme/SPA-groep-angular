@@ -4,8 +4,8 @@ import {LocationDetailComponent} from './components/locations/location-detail/lo
 import {LocationsComponent} from './components/locations/locations.component';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/advertisements', pathMatch: 'full' },
   { path: 'locations', component: LocationsComponent },
-  { path: '**', redirectTo: '/locations' },
   { path: 'locations/:id', component: LocationDetailComponent}
 ];
 

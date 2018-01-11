@@ -10,8 +10,7 @@ import { LocationService } from '../../../services/location.service';
 })
 
 export class LocationDetailComponent implements OnInit {
-  @Output() locationWasSelected = new EventEmitter<Location>();
-  advertisement: Location = new Location();
+  location: Location = new Location();
   id: string;
 
   constructor(private locationService: LocationService,
@@ -25,17 +24,13 @@ export class LocationDetailComponent implements OnInit {
           this.id = params['id'];
 
           this.locationService.getLocation(this.id)
-            .then( ad => {
-              console.dir(ad);
-              this.advertisement = ad;
-              console.log('response: ' + ad);
+            .then( loc => {
+              console.dir(loc);
+              this.location = loc;
+              console.log('response: ' + loc);
             })
             .catch( error => console.log(error));
         }
       );
-  }
-
-  onAdvertisementSelected(location: Location) {
-    this.router.navigate(['locations/' + location._id]);
   }
 }

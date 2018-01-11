@@ -9,7 +9,7 @@ import {Location} from '../models/location.model';
 export class LocationService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private serverUrl = environment.serverUrl + '/energyvalues'; // URL to web api
+  private serverUrl = environment.serverUrl + '/locations'; // URL to web api
   private locations: Location[] = [];
   locationsChanged = new Subject<Location[]>();
 
@@ -36,9 +36,11 @@ export class LocationService {
   }
 
   public getLocation(id: string): Promise<Location> {
-    return this.http.get(this.serverUrl + '/' + id, { headers: this.headers})
+    console.log('get ad with id: ' + id);
+    return this.http.get(this.serverUrl + '/' + id, { headers: this.headers })
       .toPromise()
       .then( response => {
+        console.log('Added advertisement: ' + response.json());
         return response.json() as Location;
       })
       .catch(( error => {

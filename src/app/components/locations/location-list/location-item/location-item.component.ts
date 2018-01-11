@@ -23,8 +23,7 @@ export class LocationItemComponent implements OnInit {
   }
 
   onSelected() {
-    // this.locationSelected.emit();
-    this.router.navigateByUrl('locations/' + this.id);
+    this.locationSelected.emit();
     console.log('werkt');
   }
 

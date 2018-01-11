@@ -1,5 +1,5 @@
 <app-location-item
   *ngFor="let locationEl of locations; let i = id"
   [location]="locationEl"
-  (locationWasSelected)="onLocationSelected(locationEl)"
+  (locationSelected)="onLocationSelected(locationEl)"
   [id]="i"></app-location-item>
