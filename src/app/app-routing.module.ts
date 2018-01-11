@@ -8,7 +8,8 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/locations', pathMatch: 'full'},
   {path: 'locations', component: LocationsComponent},
   {path: 'locations/new', component: LocationEditComponent},
-  {path: 'locations/:id', component: LocationDetailComponent}
+  {path: 'locations/:id', component: LocationDetailComponent},
+  {path: 'locations/:id/edit', component: LocationEditComponent}
 ];
 
 @NgModule({

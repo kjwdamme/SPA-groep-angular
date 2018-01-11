@@ -12,6 +12,7 @@ import {LocationsComponent} from './components/locations/locations.component';
 import {LocationListComponent} from './components/locations/location-list/location-list.component';
 import {LocationDetailComponent} from './components/locations/location-detail/location-detail.component';
 import { LocationEditComponent } from './components/locations/location-edit/location-edit.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -30,7 +31,10 @@ import { LocationEditComponent } from './components/locations/location-edit/loca
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCHZhZ--Z-yo4tMbWKnzFWHfJ7N3KPEU8g'
+    })
   ],
   providers: [
     LocationService

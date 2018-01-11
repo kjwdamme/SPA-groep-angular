@@ -69,6 +69,17 @@ export class LocationService {
       });
   }
 
+  public updateLocation(id: string, newLocation: Location) {
+    return this.http.put(this.serverUrl + '/' + id, newLocation, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.locationsChanged.next(this.locations.slice());
+      })
+      .catch((error => {
+        return this.handleError(error);
+      }))
+  }
+
   //
   //
   //

@@ -38,4 +38,8 @@ export class LocationDetailComponent implements OnInit {
     this.locationService.deleteLocation(this.id);
     this.router.navigate(['/locations']);
   }
+
+  onEditLocation() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
+  }
 }
