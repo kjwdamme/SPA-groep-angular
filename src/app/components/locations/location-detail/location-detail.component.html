@@ -12,7 +12,15 @@
 <p>Installer: {{ location.installer }}</p>
 <p>Contact person: {{ location.contactPerson }}</p>
 <hr>
-<h3>All converters on this location: </h3>
+<div class="row">
+  <div class="col-sm-6">
+    <h3>All converters on this location: </h3>
+  </div>
+  <div class="col-sm-6">
+    <button class="pull-right" (click)="onAddConverter()">Add converter</button>
+  </div>
+</div>
+
 <div *ngFor="let conv of location.converters">
   <p>Serial number: {{ conv.serialNumber }}</p>
   <p>Device name: {{ conv.deviceName }}</p>

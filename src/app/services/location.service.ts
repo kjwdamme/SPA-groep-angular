@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import {Subject} from 'rxjs/Subject';
 import {Location} from '../models/location.model';
 import 'rxjs/add/operator/map';
+import {Converter} from '../models/converter.model';
 
 @Injectable()
 export class LocationService {
@@ -71,6 +72,17 @@ export class LocationService {
 
   public updateLocation(id: string, newLocation: Location) {
     return this.http.put(this.serverUrl + '/' + id, newLocation, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.locationsChanged.next(this.locations.slice());
+      })
+      .catch((error => {
+        return this.handleError(error);
+      }))
+  }
+
+  public addConverterToLocation(id: string, converter: Converter) {
+    this.http.put(this.serverUrl + '/' + id + '/converter', converter, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.locationsChanged.next(this.locations.slice());

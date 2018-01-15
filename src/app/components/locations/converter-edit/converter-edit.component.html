@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="converterForm" (ngSubmit)="onSubmit()">
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="serialNumber">Serial number:</label>
+            <input type="text" id="serialNumber" formControlName="serialNumber" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="deviceName">Device name:</label>
+            <input type="text" id="deviceName" formControlName="deviceName" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="online">Online:</label>
+            <select formControlName="online" id="online" class="form-control">
+              <option value=""></option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="deviceModel">Device model:</label>
+            <input type="text" id="deviceModel" formControlName="deviceModel" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="displaySoftwareVersion">Display software version:</label>
+            <input type="text" id="displaySoftwareVersion" formControlName="displaySoftwareVersion" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="masterControlSoftwareVersion">Master control software version:</label>
+            <input type="text" id="masterControlSoftwareVersion" formControlName="masterControlSoftwareVersion" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="slaveControlVersion">Slate control version:</label>
+            <input type="text" id="slaveControlVersion" formControlName="slaveControlVersion" class="form-control">
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

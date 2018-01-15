@@ -42,4 +42,8 @@ export class LocationDetailComponent implements OnInit {
   onEditLocation() {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
+
+  onAddConverter() {
+    this.router.navigate(['converter'], {relativeTo: this.route});
+  }
 }

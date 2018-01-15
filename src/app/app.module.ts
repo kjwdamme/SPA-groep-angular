@@ -13,6 +13,7 @@ import {LocationListComponent} from './components/locations/location-list/locati
 import {LocationDetailComponent} from './components/locations/location-detail/location-detail.component';
 import { LocationEditComponent } from './components/locations/location-edit/location-edit.component';
 import { AgmCoreModule } from '@agm/core';
+import { ConverterEditComponent } from './components/locations/converter-edit/converter-edit.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { AgmCoreModule } from '@agm/core';
     LocationListComponent,
     LocationsComponent,
     LocationEditComponent,
+    ConverterEditComponent,
   ],
   imports: [
     BrowserModule,
