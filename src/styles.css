@@ -13,3 +13,8 @@
 .navbar {
   border-radius: 0px;
 }
+
+body {
+  color: white;
+  background-color: #C6002A;
+}

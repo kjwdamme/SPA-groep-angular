@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import {Location} from '../../../models/location.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { LocationService } from '../../../services/location.service';
@@ -10,7 +10,9 @@ import { LocationService } from '../../../services/location.service';
 })
 
 export class LocationDetailComponent implements OnInit {
+  
   location: Location = new Location();
+  //@Input() location: Location;
   id: string;
 
   constructor(private locationService: LocationService,
