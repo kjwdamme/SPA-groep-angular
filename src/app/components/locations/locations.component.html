@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Locations</h2>
+  </div>
+  <div class="col-sm-6">
+    <button class="btn btn-primary" (click)="onNewLocation()">Add location</button>
+  </div>
+</div>
+
+<hr>
+
+<app-location-list
+  (locationWasSelected)="selectedLocation = $event"></app-location-list>
