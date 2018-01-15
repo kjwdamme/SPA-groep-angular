@@ -9,7 +9,7 @@
       </button>
       <a class="navbar-brand" href="/">{{ title }}</a>
 
-      
+
     </div>
     <div class="collapse navbar-collapse navbar-menu-collapse">
       <ul class="nav navbar-nav">
@@ -27,6 +27,7 @@
           style="cursor: pointer;"
           (click)="onLogout()"
           *ngIf="authService.isAuthenticated()">Logout</a></li>
+      </ul>
     </div>
   </div>
 </nav>
