@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" formControlName="name" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="street">Street:</label>
+            <input type="text" id="street" formControlName="street" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="houseNumber">House number:</label>
+            <input type="text" id="houseNumber" formControlName="houseNumber" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" formControlName="city" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="zipCode">Zip code:</label>
+            <input type="text" id="zipCode" formControlName="zipCode" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" id="country" formControlName="country" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="owner">Owner:</label>
+            <input type="text" id="owner" formControlName="owner" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="installationDate">Installation date:</label>
+            <input type="date" id="installationDate" formControlName="installationDate" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="installer">Installer:</label>
+            <input type="text" id="installer" formControlName="installer" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="contactPerson">Contact person:</label>
+            <input type="text" id="contactPerson" formControlName="contactPerson" class="form-control">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
