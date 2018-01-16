@@ -13,6 +13,7 @@ import {LocationListComponent} from './components/locations/location-list/locati
 import {LocationDetailComponent} from './components/locations/location-detail/location-detail.component';
 import { LocationEditComponent } from './components/locations/location-edit/location-edit.component';
 import { AgmCoreModule } from '@agm/core';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { AgmCoreModule } from '@agm/core';
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ChartsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCHZhZ--Z-yo4tMbWKnzFWHfJ7N3KPEU8g'

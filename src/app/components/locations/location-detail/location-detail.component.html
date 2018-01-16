@@ -1,4 +1,9 @@
+
+
 <h3>More information about {{ location.name }}, {{ location.city }}</h3>
+<hr>
+<button class="btn btn-danger" (click)="onDeleteLocation()">Delete</button>
+<button class="btn btn-primary" (click)="onEditLocation()">Edit</button>
 <hr>
 
 <p>Name: {{ location.name }}</p>
@@ -32,7 +37,41 @@
     </ul>
   </ul>
   <hr>
+
+  
+
+</div>
+<script src="node_modules/chart.js/src/chart.js"></script>
+<div class="row">
+  <div class="col-sm-6">
+    <div style="display: block;">
+    <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+</div>
+  <div class="col-sm-10" style="margin-bottom: 10px">
+    <table class="table table-responsive table-condensed">
+              
+      <tr>
+        <th></th>
+        <th *ngFor="let label of lineChartLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <div *ngFor="let conv of location.converters">
+        <th>{{conv.deviceName}}</th>
+        </div>
+        <td *ngFor="let label of lineChartLabels; let j=index">{{d.data[j]}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
-<button class="btn btn-danger" (click)="onDeleteLocation()">Delete</button>
-<button class="btn btn-primary" (click)="onEditLocation()">Edit</button>
+
+
