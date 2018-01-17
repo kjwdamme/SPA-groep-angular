@@ -14,6 +14,7 @@ import {LocationDetailComponent} from './components/locations/location-detail/lo
 import { LocationEditComponent } from './components/locations/location-edit/location-edit.component';
 import { AgmCoreModule } from '@agm/core';
 import { ConverterEditComponent } from './components/locations/converter-edit/converter-edit.component';
+import { EnergyValueEditComponent } from './components/locations/energy-value-edit/energy-value-edit.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ConverterEditComponent } from './components/locations/converter-edit/co
     LocationsComponent,
     LocationEditComponent,
     ConverterEditComponent,
+    EnergyValueEditComponent,
   ],
   imports: [
     BrowserModule,

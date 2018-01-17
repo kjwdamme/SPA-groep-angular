@@ -46,4 +46,9 @@ export class LocationDetailComponent implements OnInit {
   onAddConverter() {
     this.router.navigate(['converter'], {relativeTo: this.route});
   }
+
+  onAddEnergyValue(convId: string) {
+    console.log('converter id: ' + convId);
+    this.router.navigate([convId], {relativeTo: this.route});
+  }
 }

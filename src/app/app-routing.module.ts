@@ -4,6 +4,7 @@ import {LocationDetailComponent} from './components/locations/location-detail/lo
 import {LocationsComponent} from './components/locations/locations.component';
 import {LocationEditComponent} from './components/locations/location-edit/location-edit.component';
 import {ConverterEditComponent} from './components/locations/converter-edit/converter-edit.component';
+import {EnergyValueEditComponent} from './components/locations/energy-value-edit/energy-value-edit.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/locations', pathMatch: 'full'},
@@ -11,7 +12,8 @@ const appRoutes: Routes = [
   {path: 'locations/new', component: LocationEditComponent},
   {path: 'locations/:id', component: LocationDetailComponent},
   {path: 'locations/:id/edit', component: LocationEditComponent},
-  {path: 'locations/:id/converter', component: ConverterEditComponent}
+  {path: 'locations/:id/converter', component: ConverterEditComponent},
+  {path: 'locations/:id/:converterId', component: EnergyValueEditComponent}
 ];
 
 @NgModule({
