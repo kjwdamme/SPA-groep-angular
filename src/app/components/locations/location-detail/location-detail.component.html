@@ -45,6 +45,8 @@
 <div class="row">
   <div class="col-sm-6">
     <div style="display: block;">
+      <div *ngFor="let converter of location.converters">
+
     <canvas baseChart width="400" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
@@ -54,11 +56,32 @@
                 [chartType]="lineChartType"
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"></canvas>
+      </div>
     </div>
 </div>
-  <div class="col-sm-10" style="margin-bottom: 10px">
+  <div class="col-sm-10" style="margin-bottom: 10px; margin-top: 10px">
     <table class="table table-responsive table-condensed">
-              
+      <div *ngFor="let converter of location.converters">
+        <tr>
+          <th><th>
+          <th> {{ converter.deviceName}} </th>
+        </tr>
+        <tr>
+          <div *ngFor="let value of converter.energyValue">
+            <td>
+              {{ value.timestamp }}
+            </td>
+            <div *ngFor="let info of value?.info">
+              <td>
+                {{ info?.energyValue }}
+              </td>
+            </div>
+
+          </div>
+        </tr> 
+
+      </div> 
+<!--
       <tr>
         <th></th>
         <th *ngFor="let label of lineChartLabels">{{label}}</th>
@@ -68,7 +91,7 @@
         <th>{{conv.deviceName}}</th>
         </div>
         <td *ngFor="let label of lineChartLabels; let j=index">{{d.data[j]}}</td>
-      </tr>
+      </tr>-->
     </table>
   </div>
 </div>
