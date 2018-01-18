@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,15 @@ export class HeaderComponent implements OnInit {
 
   title = 'Angular2 Starter';
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+
+
+ 
+  }
+  onLogout() {
+    this.authService.logout();
   }
 
 }
