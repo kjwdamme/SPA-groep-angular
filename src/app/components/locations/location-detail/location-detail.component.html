@@ -1,4 +1,9 @@
+
+
 <h3>More information about {{ location.name }}, {{ location.city }}</h3>
+<hr>
+<button class="btn btn-danger" (click)="onDeleteLocation()">Delete</button>
+<button class="btn btn-primary" (click)="onEditLocation()">Edit</button>
 <hr>
 
 <p>Name: {{ location.name }}</p>
@@ -12,7 +17,7 @@
 <p>Installer: {{ location.installer }}</p>
 <p>Contact person: {{ location.contactPerson }}</p>
 <hr>
-<h3>All converters on this location: </h3>
+<h3>All converters on {{ location.name }} </h3>
 <div *ngFor="let conv of location.converters">
   <p>Serial number: {{ conv.serialNumber }}</p>
   <p>Device name: {{ conv.deviceName }}</p>
@@ -21,20 +26,75 @@
   <p>Display software version: {{ conv.displaySoftwareVersion }}</p>
   <p>Master control software version: {{ conv.masterControlSoftwareVersion }}</p>
   <p>Slave control version: {{ conv.slaveControlVersion }}</p>
-
-  <h3>Energy values in this converter</h3>
-
-  <div *ngFor="let value of conv.energyValue">
-    <p>Timestamp: {{ value.timestamp }}</p>
-    <h3>Information on this energy Value</h3>
-    <div *ngFor="let info of value.info">
-      <p>Energy converted: {{ info.energyValue }}</p>
-      <p>Alert info: {{ info.alertInfo }}</p>
-      <hr>
-    </div>
-  </div>
   <hr>
+  <h4>{{conv.deviceName}}'s latest energy values:</h4>
+  <ul *ngFor="let value of conv.energyValue">
+    <li>Timestamp: {{ value.timestamp }}</li>
+    <ul *ngFor="let inf of value.info">
+      <li>Energy converted: {{ inf.energyValue }}</li>
+      <li>Alert info: {{ inf.alertInfo }}</li>
+      <hr>
+    </ul>
+  </ul>
+  <hr>
+
+  
+
+</div>
+<script src="node_modules/chart.js/src/chart.js"></script>
+<div class="row">
+  <div class="col-sm-6">
+    <div style="display: block;">
+      <div *ngFor="let converter of location.converters">
+
+    <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+</div>
+  <div class="col-sm-10" style="margin-bottom: 10px; margin-top: 10px">
+    <table class="table table-responsive table-condensed">
+      <div *ngFor="let converter of location.converters">
+        <tr>
+          <th><th>
+          <th> {{ converter.deviceName}} </th>
+        </tr>
+        <tr>
+          <div *ngFor="let value of converter.energyValue">
+            <td>
+              {{ value.timestamp }}
+            </td>
+            <div *ngFor="let info of value?.info">
+              <td>
+                {{ info?.energyValue }}
+              </td>
+            </div>
+
+          </div>
+        </tr> 
+
+      </div> 
+<!--
+      <tr>
+        <th></th>
+        <th *ngFor="let label of lineChartLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <div *ngFor="let conv of location.converters">
+        <th>{{conv.deviceName}}</th>
+        </div>
+        <td *ngFor="let label of lineChartLabels; let j=index">{{d.data[j]}}</td>
+      </tr>-->
+    </table>
+  </div>
 </div>
 
-<button class="btn btn-danger" (click)="onDeleteLocation()">Delete</button>
-<button class="btn btn-primary" (click)="onEditLocation()">Edit</button>
+
+
