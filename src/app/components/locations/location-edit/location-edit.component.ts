@@ -81,7 +81,7 @@ export class LocationEditComponent implements OnInit {
             'installer': new FormControl(location.installer, Validators.required),
             'contactPerson': new FormControl(location.contactPerson, Validators.required),
           });
-        })
+        });
     }
 
     this.locationForm = new FormGroup({

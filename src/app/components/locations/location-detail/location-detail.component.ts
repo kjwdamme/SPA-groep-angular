@@ -10,10 +10,13 @@ import { LocationService } from '../../../services/location.service';
 })
 
 export class LocationDetailComponent implements OnInit {
-  
+
   location: Location = new Location();
-  //@Input() location: Location;
+  // @Input() location: Location;
   id: string;
+  converterArray: Array<any> = [];
+  energyValuesArray: Array<any> = [];
+  public dataForGraph: Array<any> = [];
 
   constructor(private locationService: LocationService,
               private route: ActivatedRoute,
@@ -30,8 +33,35 @@ export class LocationDetailComponent implements OnInit {
               console.dir(loc);
               this.location = loc;
               console.log(this.location);
+              // loc.converters.forEach(converter => {
+              //   converter.energyValue.forEach(value => {
+              //     this.energyValuesArray.push(value.info.energyvalue);
+              //   });
+              // });
+              console.dir(this.energyValuesArray);
+              loc.converters.forEach(converterFromDb => {
+                this.converterArray.push({converter: converterFromDb, energyValueArray: []});
+                this.converterArray.forEach(converterFromArray => {
+                  converterFromArray.converter.energyValue.forEach(energyValueEl => {
+                    converterFromArray.energyValueArray.push(energyValueEl.info.energyvalue);
+                  });
+                });
+              });
+              console.dir(this.converterArray);
+            })
+            .then(() => {
+              // console.dir(converterArray);
+              this.converterArray.forEach(converter => {
+                this.lineChartData.push({data: converter.energyValueArray, label: 'Avans Beukenlaan 1 (dak 1)'});
+              });
+              console.dir(this.dataForGraph);
+              console.dir(this.lineChartData);
+              console.dir([{data: [3.4792531896286, 3.6794531596286, 3.1792531296286, 3.5792531296386, 2.7792531296286], label: 'Avans Beukenlaan 1 (dak 1)'}, {data: [3.5792531896286, 3.7792531896286, 2.9792531896286, 3.1792531296286, 3.2792531296286], label: 'Avans Beukenlaan 1 (dak 2)'}]);
             })
             .catch( error => console.log(error));
+          console.dir(this.location);
+
+
         }
       );
   }
@@ -55,20 +85,22 @@ export class LocationDetailComponent implements OnInit {
     this.router.navigate([convId], {relativeTo: this.route});
   }
 
-  public lineChartData:Array<any> = [
-    {data: [3.4792531896286, 3.6794531596286, 3.1792531296286, 3.5792531296386, 2.7792531296286], label: 'Avans Beukenlaan 1 (dak 1)'},
-    {data: [3.5792531896286, 3.7792531896286, 2.9792531896286, 3.1792531296286, 3.2792531296286], label: 'Avans Beukenlaan 1 (dak 2)'},
-  ];
-  
-  public lineChartLabels:Array<any> = ['12/1/2018', '13/1/2018', '14/1/2018', '15/1/2018', '16/1/2018' ];
+  public lineChartData: Array<any> = [];
 
-  public lineChartOptions:any = { 
+  // public lineChartData: Array<any> = [
+  //   {data: [3.4792531896286, 3.6794531596286, 3.1792531296286, 3.5792531296386, 2.7792531296286], label: 'Avans Beukenlaan 1 (dak 1)'},
+  //   {data: [3.5792531896286, 3.7792531896286, 2.9792531896286, 3.1792531296286, 3.2792531296286], label: 'Avans Beukenlaan 1 (dak 2)'},
+  // ];
+
+  public lineChartLabels: Array<any> = ['12/1/2018', '13/1/2018', '14/1/2018', '15/1/2018', '16/1/2018' ];
+
+  public lineChartOptions: any = {
     responsive: true,
   };
 
-  public lineChartColors:Array<any> = [
-    
-    { 
+  public lineChartColors: Array<any> = [
+
+    {
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(0,0,180,1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -76,7 +108,7 @@ export class LocationDetailComponent implements OnInit {
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)',
     },
-    { 
+    {
       backgroundColor: 'rgba(77,83,96,0.2)',
       borderColor: 'rgba(0,180,0,1)',
       pointBackgroundColor: 'rgba(77,83,96,1)',
@@ -84,7 +116,7 @@ export class LocationDetailComponent implements OnInit {
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(77,83,96,1)'
     },
-    { 
+    {
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',

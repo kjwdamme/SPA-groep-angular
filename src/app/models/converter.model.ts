@@ -10,7 +10,7 @@ export class Converter {
   private _displaySoftwareVersion: string;
   private _masterControlSoftwareVersion: string;
   private _slaveControlVersion: string;
-  private _energyValues: EnergyValue[];
+  private _energyValue: EnergyValue[];
 
   constructor(values: Object = {}) {
     Object.assign(this, values);
@@ -81,11 +81,11 @@ export class Converter {
     this._slaveControlVersion = value;
   }
 
-  get energyValues(): EnergyValue[] {
-    return this._energyValues;
+  get energyValue(): EnergyValue[] {
+    return this._energyValue;
   }
 
-  set energyValues(value: EnergyValue[]) {
-    this._energyValues = value;
+  set energyValue(value: EnergyValue[]) {
+    this._energyValue = value;
   }
 }

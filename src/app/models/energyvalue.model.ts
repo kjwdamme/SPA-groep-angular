@@ -5,7 +5,7 @@ export class EnergyValue {
   private _id: string;
   private _converterId: string;
   private _timestamp: Date;
-  private _info: Info[];
+  private _info: Info;
 
   constructor(values: Object = {}) {
     Object.assign(this, values);
@@ -35,11 +35,11 @@ export class EnergyValue {
     this._timestamp = value;
   }
 
-  get info(): Info[] {
+  get info(): Info {
     return this._info;
   }
 
-  set info(value: Info[]) {
+  set info(value: Info) {
     this._info = value;
   }
 }

@@ -17,19 +17,19 @@ export class Info {
     this._id = value;
   }
 
-  get energyValue(): number {
+  get energyvalue(): number {
     return this._energyValue;
   }
 
-  set energyValue(value: number) {
+  set energyvalue(value: number) {
     this._energyValue = value;
   }
 
-  get alertInfo(): string {
+  get alert_info(): string {
     return this._alertInfo;
   }
 
-  set alertInfo(value: string) {
+  set alert_info(value: string) {
     this._alertInfo = value;
   }
 }
