@@ -6,8 +6,8 @@
 <p>House number: {{ location.houseNumber }}</p>
 <p>City: {{ location.city }}</p>
 <p>Zip code: {{ location.zipCode }}</p>
-<p>Country: {{ location.zipCode }}</p>
-<p>Owner: {{ location.owner }}</p>
+<p>Country: {{ location.country }}</p>
+<p>Owner: {{ location.Owner }}</p>
 <p>Installation date: {{ location.installationDate }}</p>
 <p>Installer: {{ location.installer }}</p>
 <p>Contact person: {{ location.contactPerson }}</p>
@@ -46,8 +46,8 @@
 
   <div *ngFor="let value of conv.energyValue">
     <p>Timestamp: {{ value.timestamp }}</p>
-    <p>Energy value: {{ value.info.energyValue }}</p>
-    <p>Alert info: {{ value.info.alertInfo }}</p>
+    <p>Energy value: {{ value.info.energyvalue }}</p>
+    <p>Alert info: {{ value.info.alert_info }}</p>
   </div>
   <hr>
 </div>

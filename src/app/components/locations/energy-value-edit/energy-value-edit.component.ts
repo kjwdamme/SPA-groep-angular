@@ -46,8 +46,8 @@ export class EnergyValueEditComponent implements OnInit {
     this.energyValueForm = new FormGroup({
       'timestamp': new FormControl('', Validators.required),
       'info': new FormGroup({
-        'energyValue': new FormControl('', Validators.required),
-        'alertInfo': new FormControl('', Validators.required)
+        'energyvalue': new FormControl('', Validators.required),
+        'alert_info': new FormControl('', Validators.required)
       })
 
     });

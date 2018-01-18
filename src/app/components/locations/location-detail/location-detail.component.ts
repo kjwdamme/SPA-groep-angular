@@ -27,7 +27,7 @@ export class LocationDetailComponent implements OnInit {
             .then( loc => {
               console.dir(loc);
               this.location = loc;
-              console.log('response: ' + loc);
+              console.log(this.location);
             })
             .catch( error => console.log(error));
         }
