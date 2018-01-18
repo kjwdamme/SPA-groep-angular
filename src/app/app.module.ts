@@ -15,7 +15,10 @@ import { LocationEditComponent } from './components/locations/location-edit/loca
 import { AgmCoreModule } from '@agm/core';
 import { ConverterEditComponent } from './components/locations/converter-edit/converter-edit.component';
 import { EnergyValueEditComponent } from './components/locations/energy-value-edit/energy-value-edit.component';
-
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { EnergyValueEditComponent } from './components/locations/energy-value-ed
     LocationEditComponent,
     ConverterEditComponent,
     EnergyValueEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,7 @@ import { EnergyValueEditComponent } from './components/locations/energy-value-ed
     })
   ],
   providers: [
-    LocationService
+    LocationService, AuthService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })
