@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="energyValueForm" (ngSubmit)="onSubmit()">
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="timestamp">Time stamp:</label>
+            <input type="date" id="timestamp" formControlName="timestamp" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="info">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="energyvalue">Energy value:</label>
+              <input type="number" id="energyvalue" formControlName="energyvalue" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="alert_info">Alert info:</label>
+              <input type="text" id="alert_info" formControlName="alert_info"  class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+</div>

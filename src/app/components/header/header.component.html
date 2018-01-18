@@ -8,12 +8,27 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">{{ title }}</a>
+
+
     </div>
     <div class="collapse navbar-collapse navbar-menu-collapse">
       <ul class="nav navbar-nav">
         <li>
           <a routerLink="/dashboard" [routerLinkActive]="['active']">Dashboard</a>
         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+         
+          <li><a routerLink="/signin">Login</a></li>
+        </ng-template>
+        <ng-template [ngIf]="authService.isAuthenticated()">
+        <li><a
+          style="cursor: pointer;"
+          (click)="onLogout()"
+          *ngIf="authService.isAuthenticated()">Logout</a></li>
+          <li><a routerLink="/signup">Register</a></li>
+        </ng-template>
       </ul>
     </div>
   </div>

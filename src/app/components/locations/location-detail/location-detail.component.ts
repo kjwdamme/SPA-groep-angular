@@ -29,7 +29,7 @@ export class LocationDetailComponent implements OnInit {
             .then( loc => {
               console.dir(loc);
               this.location = loc;
-              console.log('response: ' + loc);
+              console.log(this.location);
             })
             .catch( error => console.log(error));
         }
@@ -42,7 +42,17 @@ export class LocationDetailComponent implements OnInit {
   }
 
   onEditLocation() {
+    console.log('test');
     this.router.navigate(['edit'], {relativeTo: this.route});
+  }
+
+  onAddConverter() {
+    this.router.navigate(['converter'], {relativeTo: this.route});
+  }
+
+  onAddEnergyValue(convId: string) {
+    console.log('converter id: ' + convId);
+    this.router.navigate([convId], {relativeTo: this.route});
   }
 
   public lineChartData:Array<any> = [
@@ -95,5 +105,4 @@ export class LocationDetailComponent implements OnInit {
   public chartHovered(e:any){
     console.log(e);
   }
-
 }

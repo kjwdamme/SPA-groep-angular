@@ -76,7 +76,7 @@ export class LocationEditComponent implements OnInit {
             'city': new FormControl(location.city, Validators.required),
             'zipCode': new FormControl(location.zipCode, Validators.required),
             'country': new FormControl(location.country, Validators.required),
-            'owner': new FormControl(location.owner, Validators.required),
+            'Owner': new FormControl(location.owner, Validators.required),
             'installationDate': new FormControl(location.installationDate, Validators.required),
             'installer': new FormControl(location.installer, Validators.required),
             'contactPerson': new FormControl(location.contactPerson, Validators.required),

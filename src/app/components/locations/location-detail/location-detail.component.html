@@ -11,14 +11,23 @@
 <p>House number: {{ location.houseNumber }}</p>
 <p>City: {{ location.city }}</p>
 <p>Zip code: {{ location.zipCode }}</p>
-<p>Country: {{ location.zipCode }}</p>
-<p>Owner: {{ location.owner }}</p>
+<p>Country: {{ location.country }}</p>
+<p>Owner: {{ location.Owner }}</p>
 <p>Installation date: {{ location.installationDate }}</p>
 <p>Installer: {{ location.installer }}</p>
 <p>Contact person: {{ location.contactPerson }}</p>
 <hr>
-<h3>All converters on {{ location.name }} </h3>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h3>All converters on this location: </h3>
+  </div>
+  <div class="col-sm-6">
+    <button class="pull-right" (click)="onAddConverter()">Add converter</button>
+  </div>
+</div>
 <div *ngFor="let conv of location.converters">
+
   <p>Serial number: {{ conv.serialNumber }}</p>
   <p>Device name: {{ conv.deviceName }}</p>
   <p>Online: {{ conv.online }}</p>
@@ -38,6 +47,20 @@
   </ul>
   <hr>
 
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Energy values in this converter</h3>
+    </div>
+    <div class="col-sm-6">
+      <button class="pull-right" (click)="onAddEnergyValue(conv._id.toString())">Add energy value</button>
+    </div>
+  </div>
+
+
+  <div *ngFor="let value of conv.energyValue">
+    <p>Timestamp: {{ value.timestamp }}</p>
+    <p>Energy value: {{ value.info.energyvalue }}</p>
+    <p>Alert info: {{ value.info.alert_info }}</p>
   
 
 </div>
