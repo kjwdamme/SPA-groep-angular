@@ -8,7 +8,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'Angular2 Starter';
+  title = 'Smart Energy Avans';
 
   constructor(private authService: AuthService) { }
 

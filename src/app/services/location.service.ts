@@ -20,11 +20,39 @@ export class LocationService {
   //
   //
   //
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    this.readLocations();
+   }
 
   //
   //
   //
+
+  public readLocations() {
+    this.http.get(environment.serverUrl + '/locations')
+    .map((response) => {
+      console.log("map");
+      const locations = response.json() as Location[];
+      return locations;
+    })
+    .subscribe((locations) => {
+      console.log("subscribe");
+      this.locations = locations as Location[];
+      this.locationsChanged.next(this.locations.slice());
+    })
+  }
+
+
+  // public getLocations(){
+  //   return this.locations.slice();
+  // }
+
+
+  getConverters(index: number){
+    return this.locations[index].converters.slice();
+  }
+
+
   public getLocations(): Promise<Location[]> {
     console.log('get values from the server');
     return this.http.get(this.serverUrl, { headers: this.headers })
@@ -81,6 +109,7 @@ export class LocationService {
         return this.handleError(error);
       }))
   }
+
 
   public addConverterToLocation(id: string, converter: Converter) {
     this.http.put(this.serverUrl + '/' + id + '/converter', converter, {headers: this.headers})

@@ -19,6 +19,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AuthGuard } from './auth/auth-guard.service';
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ChartsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCHZhZ--Z-yo4tMbWKnzFWHfJ7N3KPEU8g'

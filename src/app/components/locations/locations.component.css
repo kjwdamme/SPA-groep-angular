@@ -1,0 +1,12 @@
+.btn-1 {
+    background-color:white;
+    color:black;
+    border:2px solid darkred;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.btn-1:hover{
+    background-color: darkred;
+    color: white;
+}
