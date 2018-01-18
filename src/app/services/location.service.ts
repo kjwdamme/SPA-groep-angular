@@ -90,6 +90,18 @@ export class LocationService {
       }));
   }
 
+  public removeConverterFromLocation(locationId: string, converterId: string) {
+    this.http.delete(this.serverUrl + '/' + locationId + '/' + converterId, {headers: this.headers})
+      .toPromise()
+      .then( response => {
+        console.log(response);
+        this.locationsChanged.next(this.locations.slice());
+      })
+      .catch((error => {
+        return this.handleError(error);
+      }));
+  }
+
   public addLocation(location: Location) {
     this.http.post(this.serverUrl, location)
       .map(response => response.json() as Location)
@@ -130,7 +142,7 @@ export class LocationService {
       })
       .catch((error => {
         return this.handleError(error);
-      }))
+      }));
   }
   
   public deleteEnergyValue(locationId: string, converterId: string, energyValueId: string) {
