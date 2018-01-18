@@ -132,6 +132,17 @@ export class LocationService {
         return this.handleError(error);
       }))
   }
+  
+  public deleteEnergyValue(locationId: string, converterId: string, energyValueId: string) {
+    this.http.delete(this.serverUrl + '/' + locationId + '/' + converterId + '/' + energyValueId, { headers: this.headers})
+      .toPromise()
+      .then( response => {
+        this.locationsChanged.next(this.locations.slice());
+      })
+      .catch(( error => {
+        return this.handleError(error);
+      }));
+  }
 
   //
   //

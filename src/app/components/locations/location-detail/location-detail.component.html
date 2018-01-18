@@ -38,10 +38,11 @@
   <hr>
   <h4>{{conv.deviceName}}'s latest energy values:</h4>
   <ul *ngFor="let value of conv.energyValue">
+      <button class="btn btn-danger" (click)="onDeleteEnergyValue(conv._id, value._id)">Delete energy value</button>
     <li>Timestamp: {{ value.timestamp }}</li>
-    <ul *ngFor="let inf of value.info">
-      <li>Energy converted: {{ inf.energyValue }}</li>
-      <li>Alert info: {{ inf.alertInfo }}</li>
+    <ul>
+      <li>Energy converted: {{ value.info.energyvalue }}</li>
+      <li>Alert info: {{ value.info.alert_info }}</li>
       <hr>
     </ul>
   </ul>
@@ -56,14 +57,8 @@
     </div>
   </div>
 
-
-  <div *ngFor="let value of conv.energyValue">
-    <p>Timestamp: {{ value.timestamp }}</p>
-    <p>Energy value: {{ value.info.energyvalue }}</p>
-    <p>Alert info: {{ value.info.alert_info }}</p>
-  
-
 </div>
+
 <script src="node_modules/chart.js/src/chart.js"></script>
 <div class="row">
   <div class="col-sm-6">
@@ -94,9 +89,9 @@
             <td>
               {{ value.timestamp }}
             </td>
-            <div *ngFor="let info of value?.info">
+            <div>
               <td>
-                {{ info?.energyValue }}
+                {{ value.info.energyvalue }}
               </td>
             </div>
 
@@ -118,6 +113,5 @@
     </table>
   </div>
 </div>
-
 
 

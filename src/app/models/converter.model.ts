@@ -2,6 +2,7 @@ import {EnergyValue} from './energyvalue.model';
 
 export class Converter {
 
+  public _id;
   private _serialNumber: string;
   private _deviceName: string;
   private _online: boolean;

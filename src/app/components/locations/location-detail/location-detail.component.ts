@@ -55,6 +55,15 @@ export class LocationDetailComponent implements OnInit {
     this.router.navigate([convId], {relativeTo: this.route});
   }
 
+  onDeleteEnergyValue(converterId: string, energyValueId: string) {
+    this.locationService.deleteEnergyValue(this.id, converterId, energyValueId);
+    this.router.navigate(['/locations']);
+  }
+
+
+
+
+
   public lineChartData:Array<any> = [
     {data: [3.4792531896286, 3.6794531596286, 3.1792531296286, 3.5792531296386, 2.7792531296286], label: 'Avans Beukenlaan 1 (dak 1)'},
     {data: [3.5792531896286, 3.7792531896286, 2.9792531896286, 3.1792531296286, 3.2792531296286], label: 'Avans Beukenlaan 1 (dak 2)'},
