@@ -13,14 +13,14 @@ import { AuthGuard } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/locations', pathMatch: 'full'},
+  {path: 'signup', component: SignupComponent },
+  {path: 'signin', component: SigninComponent },
   {path: 'locations', component: LocationsComponent},
   {path: 'locations/new', component: LocationEditComponent, canActivate: [AuthGuard]},
   {path: 'locations/:id', component: LocationDetailComponent},
   {path: 'locations/:id/edit', component: LocationEditComponent, canActivate: [AuthGuard]},
   {path: 'locations/:id/converter', component: ConverterEditComponent, canActivate: [AuthGuard]},
-  {path: 'locations/:id/:converterId', component: EnergyValueEditComponent,canActivate: [AuthGuard]},
-  { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent },
+  {path: 'locations/:id/:converterId', component: EnergyValueEditComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

@@ -40,6 +40,7 @@ export class LocationDetailComponent implements OnInit {
   }
 
   onEditLocation() {
+    console.log('test');
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
