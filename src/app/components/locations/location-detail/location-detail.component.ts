@@ -10,7 +10,7 @@ import { LocationService } from '../../../services/location.service';
 })
 
 export class LocationDetailComponent implements OnInit {
-  
+
   location: Location = new Location();
   //@Input() location: Location;
   id: string;
@@ -59,16 +59,16 @@ export class LocationDetailComponent implements OnInit {
     {data: [3.4792531896286, 3.6794531596286, 3.1792531296286, 3.5792531296386, 2.7792531296286], label: 'Avans Beukenlaan 1 (dak 1)'},
     {data: [3.5792531896286, 3.7792531896286, 2.9792531896286, 3.1792531296286, 3.2792531296286], label: 'Avans Beukenlaan 1 (dak 2)'},
   ];
-  
+
   public lineChartLabels:Array<any> = ['12/1/2018', '13/1/2018', '14/1/2018', '15/1/2018', '16/1/2018' ];
 
-  public lineChartOptions:any = { 
+  public lineChartOptions:any = {
     responsive: true,
   };
 
   public lineChartColors:Array<any> = [
-    
-    { 
+
+    {
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(0,0,180,1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -76,7 +76,7 @@ export class LocationDetailComponent implements OnInit {
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)',
     },
-    { 
+    {
       backgroundColor: 'rgba(77,83,96,0.2)',
       borderColor: 'rgba(0,180,0,1)',
       pointBackgroundColor: 'rgba(77,83,96,1)',
@@ -84,7 +84,7 @@ export class LocationDetailComponent implements OnInit {
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(77,83,96,1)'
     },
-    { 
+    {
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -104,5 +104,11 @@ export class LocationDetailComponent implements OnInit {
 
   public chartHovered(e:any){
     console.log(e);
+  }
+
+  public onRemoveConverter(converterId: string) {
+    console.log('id voor verwijderen: ' + converterId);
+    this.locationService.removeConverterFromLocation(this.id, converterId);
+    this.router.navigate(['locations']);
   }
 }

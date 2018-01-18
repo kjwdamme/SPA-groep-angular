@@ -27,7 +27,7 @@
   </div>
 </div>
 <div *ngFor="let conv of location.converters">
-
+  <button class="btn btn-danger" (click)="onRemoveConverter(conv._id)"></button>
   <p>Serial number: {{ conv.serialNumber }}</p>
   <p>Device name: {{ conv.deviceName }}</p>
   <p>Online: {{ conv.online }}</p>
@@ -39,9 +39,9 @@
   <h4>{{conv.deviceName}}'s latest energy values:</h4>
   <ul *ngFor="let value of conv.energyValue">
     <li>Timestamp: {{ value.timestamp }}</li>
-    <ul *ngFor="let inf of value.info">
-      <li>Energy converted: {{ inf.energyValue }}</li>
-      <li>Alert info: {{ inf.alertInfo }}</li>
+    <ul>
+      <li>Energy converted: {{ value.info.energyValue }}</li>
+      <li>Alert info: {{ value.info.alert_info }}</li>
       <hr>
     </ul>
   </ul>
@@ -61,16 +61,18 @@
     <p>Timestamp: {{ value.timestamp }}</p>
     <p>Energy value: {{ value.info.energyvalue }}</p>
     <p>Alert info: {{ value.info.alert_info }}</p>
-  
+
 
 </div>
+</div>
+
 <script src="node_modules/chart.js/src/chart.js"></script>
 <div class="row">
   <div class="col-sm-6">
     <div style="display: block;">
-      <div *ngFor="let converter of location.converters">
+      <div>
 
-    <canvas baseChart width="400" height="400"
+        <canvas baseChart width="400" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
@@ -81,7 +83,7 @@
                 (chartClick)="chartClicked($event)"></canvas>
       </div>
     </div>
-</div>
+  </div>
   <div class="col-sm-10" style="margin-bottom: 10px; margin-top: 10px">
     <table class="table table-responsive table-condensed">
       <div *ngFor="let converter of location.converters">
@@ -94,30 +96,29 @@
             <td>
               {{ value.timestamp }}
             </td>
-            <div *ngFor="let info of value?.info">
+            <div>
               <td>
-                {{ info?.energyValue }}
+                {{ value.info.energyvalue }}
               </td>
             </div>
 
           </div>
-        </tr> 
+        </tr>
 
-      </div> 
-<!--
-      <tr>
-        <th></th>
-        <th *ngFor="let label of lineChartLabels">{{label}}</th>
-      </tr>
-      <tr *ngFor="let d of lineChartData">
-        <div *ngFor="let conv of location.converters">
-        <th>{{conv.deviceName}}</th>
-        </div>
-        <td *ngFor="let label of lineChartLabels; let j=index">{{d.data[j]}}</td>
-      </tr>-->
+      </div>
+      <!--
+            <tr>
+              <th></th>
+              <th *ngFor="let label of lineChartLabels">{{label}}</th>
+            </tr>
+            <tr *ngFor="let d of lineChartData">
+              <div *ngFor="let conv of location.converters">
+              <th>{{conv.deviceName}}</th>
+              </div>
+              <td *ngFor="let label of lineChartLabels; let j=index">{{d.data[j]}}</td>
+            </tr>-->
     </table>
   </div>
 </div>
-
 
 
