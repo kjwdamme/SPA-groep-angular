@@ -27,7 +27,7 @@
   </div>
 </div>
 <div *ngFor="let conv of location.converters">
-  <button class="btn btn-danger" (click)="onRemoveConverter(conv._id)">Delete Converter</button>
+  <button class="btn btn-primary" (click)="onRemoveConverter(conv._id)">Delete Converter</button>
   <p>Serial number: {{ conv.serialNumber }}</p>
   <p>Device name: {{ conv.deviceName }}</p>
   <p>Online: {{ conv.online }}</p>
@@ -38,7 +38,7 @@
   <hr>
   <h4>{{conv.deviceName}}'s latest energy values:</h4>
   <ul *ngFor="let value of conv.energyValue">
-      <button class="btn btn-danger" (click)="onDeleteEnergyValue(conv._id, value._id)">Delete energy value</button>
+      <button class="btn btn-primary" (click)="onDeleteEnergyValue(conv._id, value._id)">Delete energy value</button>
     <li>Timestamp: {{ value.timestamp }}</li>
     <ul>
       <li>Energy converted: {{ value.info.energyvalue }}</li>
